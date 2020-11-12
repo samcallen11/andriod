@@ -17,7 +17,7 @@ celeb = ["anne_hathaway","arnold_schwarzenegger","ben_afflek","dwayne_johnson","
 
 
 
-def f(name):
+def encoder(name):
     for i in range(len(celeb)):
         if celeb[i] == name:
             return i+1
@@ -33,7 +33,7 @@ for folder in os.listdir("E:\\P\\PYTHON\\CR\\images\\train"):
         image = img_to_array(img)
         x_train.append(image) 
         
-        y_train.append(f(folder))
+        y_train.append(encoder(folder))
 
 
 
@@ -45,12 +45,9 @@ for folder in os.listdir("E:\\P\\PYTHON\\CR\\images\\test"):
         image = img_to_array(img)
         
         x_test.append(image)
-        y_test.append(f(folder))
+        y_test.append(encoder(folder))
 
 
-print(x_train)
-print("---------------------------")
-print(y_train)
 
 model = Sequential()
 model.add(Flatten())
